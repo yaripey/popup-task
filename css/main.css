@@ -1,3 +1,5 @@
+/* General styles */
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -14,6 +16,8 @@ a:visited {
   color: rgb(168, 168, 168);
 }
 
+/* Header styles */
+
 nav {
   display: flex;
   height: 50px;
@@ -29,15 +33,34 @@ nav {
   font-size: 14px;
 }
 
+.nav-item:hover {
+  color: black;
+}
+
 .menu-button img {
   height: 25px;
   width: 25px;
+}
+
+.menu-button {
+  cursor: pointer;
 }
 
 .notifications img {
   height: 20px;
   width: 15px;
 }
+
+.notifications:hover, .profile-pic:hover {
+  transform: scale(1.2);
+  transition: ease 0.2s;
+}
+
+.notifications, .profile-pic {
+  transition: ease 0.2s;
+}
+
+
 
 .profile-pic {
   height: 30px;
@@ -70,42 +93,88 @@ nav {
   transition: ease 0.1s;
 }
 
-.menu-check:checked + .menu-icon{
-  transform: scale(1.3);
-  transition: ease 0.1s;
+.menu-check:checked + .menu-icon:hover {
+  transform: scale(1.2) rotate(45deg);
 }
 
-.menu-check:checked + .menu-icon + .popupmenu {
+.menu-icon:checked + .menu-icon:active {
+  transform: scale(0.6) rotate(45deg);
+}
+
+.menu-check:focus + .menu-icon{
+  outline: 1px solid black;
+}
+
+.menu-check:checked + .menu-icon{
+  transform: rotate(45deg);
+  transition: ease 0.4s;
+}
+
+.menu-icon:hover {
+  transform: scale(1.2);
+}
+
+.menu-icon:active {
+  transform: scale(0.8);
+}
+
+.menu-check:checked + .menu-icon + .popupmenu-wrap {
   visibility: visible;
   transition: 0.5s ease;
   opacity: 1;
 }
 
-.popupmenu {
+.popupmenu-wrap {
   visibility: hidden;
   position: absolute;
+  opacity: 0;
   left: -200px;
   top: 50px;
-  width: 300px;
-  border: 1px solid rgb(168, 168, 168);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  
   transition: 0.3s ease;
-  opacity: 0;
+}
+
+.popupmenu {
+  width: 300px;
   height: 550px;
   overflow: auto;
-
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: flex-start;
   padding-top: 30px;
 }
 
+/* Small triangle */
+.popupmenu-wrap:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -8px;
+  left: 212px;
+  border-bottom: 10px solid white;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
 .menu-item {
-  width: 70px;
+  outline: none;
+  min-width: 90px;
   height: 100px;
   text-align: center;
-  margin: 10px 10px;
+  padding: 20px 10px;
+  border: 1px solid transparent;
+  transition: ease 0.2s;
+}
+
+.menu-item:hover {
+  border: 1px solid grey;
+  transition: ease 0.2s;
+}
+
+.menu-item:focus {
+  outline: 1px solid black;
 }
 
 .menu-item img{
@@ -117,7 +186,7 @@ nav {
   margin-top: 20px;
 }
 
-/* More button */
+/* More */
 
 .more-button-checkbox {
   -appearance: none;
@@ -135,6 +204,22 @@ nav {
   line-height: 30px;
   color: black;
   transition: 0.3s ease;
+}
+
+.more-button-checkbox:focus + .more-button {
+  background: rgb(121, 121, 121);
+  color: white;
+}
+
+.more-button-checkbox:checked:focus + .more-button {
+  color: rgb(121, 121, 121);
+}
+
+.more-button:hover {
+  background: rgb(121, 121, 121);
+  color: white;
+  transition: 0.2s ease;
+  cursor: pointer;
 }
 
 .more-button-checkbox:checked + .more-button{
